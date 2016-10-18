@@ -61,12 +61,11 @@ import org.springframework.web.method.HandlerMethod;
 public interface AsyncHandlerInterceptor extends HandlerInterceptor {
 
 	/**
-	 * Called instead of {@code postHandle} and {@code afterCompletion}, when
-	 * the a handler is being executed concurrently.
-	 * <p>Implementations may use the provided request and response but should
-	 * avoid modifying them in ways that would conflict with the concurrent
-	 * execution of the handler. A typical use of this method would be to
-	 * clean up thread-local variables.
+	 * 当handler并发执行时,替代 {@code postHandle} and {@code afterCompletion}
+     *
+	 *
+	 * <p>具体实现可能利用request和response,不过不应该修改它们,避免并发冲突。
+	 * 典型的场景时清除 thread-local变量。
 	 *
 	 * @param request the current request
 	 * @param response the current response
